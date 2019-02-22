@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="dropdown">
+    <button class="dropbtn">Meal type</button>
+    <div class="dropdown-content">
+        @Html.ActionLink("Breakfast Menu", "Breakfast", "Home")
+        @Html.ActionLink("Lunch Menu", "Lunch", "Home")
+        @Html.ActionLink("Dinner Menu", "Dinner", "Home")
+    </div>
+</div>
