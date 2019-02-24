@@ -12,18 +12,34 @@ namespace RecipesProjects.Controllers
 {
     public class HomeController : Controller
     {
+        UserInput userChoice = new UserInput();
+        
         public ActionResult Index()
         {
-            return View();
+            
+            return View(userChoice);
+        }
+        [HttpPost]
+        public ActionResult Index(UserInput userChoice)
+        {
+            if (Session["UserInput"] != null)
+            {
+                userChoice = (UserInput)Session["UserInput"];
+            }
+            else
+            {
+                Session["UserInput"] = userChoice;
+            }
+                   
+                return RedirectToAction("About");
         }
 
         public ActionResult About()
         {
+            userChoice =(UserInput) Session["UserInput"];
+
             MovieAPI obj = new MovieAPI();
-            obj = RecipesDAL.GetPost("http://www.omdbapi.com/?" + "t=" + "hello" + "&apikey=70a772b9&");
-
-
-
+            obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+userChoice.MovieName+"&apikey=70a772b9&");
             return View(obj);
         }
 
@@ -48,31 +64,7 @@ namespace RecipesProjects.Controllers
         {
             return View();
         }
-        /*
-
-        public MovieAPI Recipes(MovieAPI obj)
-        {
-            string url = "http://www.omdbapi.com/?"+"t="+"hello"+"&apikey=70a772b9&";
-            HttpWebRequest request = WebRequest.CreateHttp(url);
-            //request.Headers.Add("t", "blade+runner");
-            //request.Headers.Add("apikey", "70a772b9");
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader rd = new StreamReader(response.GetResponseStream());
-
-            string APIText = rd.ReadToEnd();
-
-            JToken movieInfo = JToken.Parse(APIText);
-
-            
-            obj = new MovieAPI(APIText);
-            
-
-
-            return obj;
-        }
-        */
+        
 
     }
 

@@ -1,12 +1,28 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+@model RecipesProjects.Models.UserInput
 
-<div class="dropdown">
-    <button class="dropbtn">Meal type</button>
-    <div class="dropdown-content">
-        @Html.ActionLink("Breakfast Menu", "Breakfast", "Home")
-        @Html.ActionLink("Lunch Menu", "Lunch", "Home")
-        @Html.ActionLink("Dinner Menu", "Dinner", "Home")
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    <div class="Row ">
+        <div class=" col-md-6">
+
+            <p>Please enter a movie name to search for :</p>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.MovieName, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.MovieName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.MovieName, "", new { @class = "text-danger" })
+
+                <input type="submit" value="Enter">
+            </div>
+        </div>
     </div>
-</div>
+
+
+}
+@if (ViewBag.Error != null)
+{
+    <h2>@ViewBag.Error</h2>
+}

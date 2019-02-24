@@ -137,7 +137,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MovieAPI.cs" />
-    <Compile Include="Models\RecipesDAL.cs" />
+    <Compile Include="Models\MovieDAL.cs" />
+    <Compile Include="Models\UserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

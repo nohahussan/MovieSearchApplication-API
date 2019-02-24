@@ -1,9 +1,28 @@
 ﻿@model RecipesProjects.Models.MovieAPI
 
+<h2>Movie Details:</h2>
 
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Rated</th>
+        <th>Released</th>
+        <th>Director</th>
+        <th>Genre</th>
+        <th></th>
 
+    </tr>
+    
+    <tr>
 
-
-<h2>@Model.Genre</h2>
-<h2>@Model.Title</h2>
-
+        <td>@Model.Title</td>
+        <td>@Model.Year</td>
+        <td>@Model.Rated</td>
+        <td>@Model.Released</td>
+        <td>@Model.Director</td>
+        <td>@Model.Genre</td>
+      
+    </tr>
+    }
+</table>
