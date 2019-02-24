@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using RecipesProjects.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,11 +19,12 @@ namespace RecipesProjects.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-             JToken var = Recipes();
+            MovieAPI obj = new MovieAPI();
+            obj = RecipesDAL.GetPost("http://www.omdbapi.com/?" + "t=" + "hello" + "&apikey=70a772b9&");
 
 
-            return View();
+
+            return View(obj);
         }
 
         public ActionResult Contact()
@@ -46,19 +48,31 @@ namespace RecipesProjects.Controllers
         {
             return View();
         }
+        /*
 
-        public JToken Recipes()
+        public MovieAPI Recipes(MovieAPI obj)
         {
-            HttpWebRequest request = WebRequest.CreateHttp("https://developer.edamam.com/");
-            request.Headers.Add("1f3aa5eb", "a1d0eb045f18e2e5bf9a9bab2ae6cbe4");
+            string url = "http://www.omdbapi.com/?"+"t="+"hello"+"&apikey=70a772b9&";
+            HttpWebRequest request = WebRequest.CreateHttp(url);
+            //request.Headers.Add("t", "blade+runner");
+            //request.Headers.Add("apikey", "70a772b9");
+
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
             StreamReader rd = new StreamReader(response.GetResponseStream());
-            string data = rd.ReadToEnd();
-            JToken anything = JToken.Parse(data);
 
-            return anything;
+            string APIText = rd.ReadToEnd();
+
+            JToken movieInfo = JToken.Parse(APIText);
+
+            
+            obj = new MovieAPI(APIText);
+            
+
+
+            return obj;
         }
-
+        */
 
     }
 
