@@ -7,7 +7,9 @@ namespace RecipesProjects.Models
 {
     public class UserInput
     {
+
         public string MovieName { get; set; }
+        
 
         public UserInput()
         { }

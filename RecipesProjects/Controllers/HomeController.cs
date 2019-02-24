@@ -39,7 +39,8 @@ namespace RecipesProjects.Controllers
             userChoice =(UserInput) Session["UserInput"];
 
             MovieAPI obj = new MovieAPI();
-            obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+userChoice.MovieName+"&apikey=70a772b9&");
+            string Movename = userChoice.MovieName.Trim();
+            obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
             return View(obj);
         }
 
