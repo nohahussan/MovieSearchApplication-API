@@ -13,7 +13,7 @@ namespace RecipesProjects.Controllers
     public class HomeController : Controller
     {
         UserInput userChoice = new UserInput();
-        
+        private DBItemContext db = new DBItemContext();
         public ActionResult Index()
         {
             
@@ -41,6 +41,8 @@ namespace RecipesProjects.Controllers
             MovieAPI obj = new MovieAPI();
             string Movename = userChoice.MovieName.Trim();
             obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
+            db.MovieAPIs.Add(obj);
+            db.SaveChanges();
             return View(obj);
         }
 
