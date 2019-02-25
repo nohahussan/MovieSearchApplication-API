@@ -22,15 +22,8 @@ namespace RecipesProjects.Controllers
         [HttpPost]
         public ActionResult Index(UserInput userChoice)
         {
-            if (Session["UserInput"] != null)
-            {
-                userChoice = (UserInput)Session["UserInput"];
-            }
-            else
-            {
-                Session["UserInput"] = userChoice;
-            }
-                   
+             Session["UserInput"] = userChoice;
+              
                 return RedirectToAction("About");
         }
 
