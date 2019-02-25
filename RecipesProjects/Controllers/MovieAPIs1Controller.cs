@@ -35,28 +35,24 @@ namespace RecipesProjects.Controllers
             return View(movieAPI);
         }
 
-        // GET: MovieAPIs1/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        
 
         // POST: MovieAPIs1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Create( MovieAPI movieAPI)
         {
             if (ModelState.IsValid)
             {
                 db.MovieAPIs.Add(movieAPI);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
             }
 
-            return View(movieAPI);
+            return RedirectToAction("Index");
         }
+        
 
         // GET: MovieAPIs1/Edit/5
         public ActionResult Edit(int? id)

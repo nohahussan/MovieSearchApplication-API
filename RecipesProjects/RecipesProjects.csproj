@@ -188,6 +188,7 @@
     <Content Include="Views\MovieAPIs1\Details.cshtml" />
     <Content Include="Views\MovieAPIs1\Edit.cshtml" />
     <Content Include="Views\MovieAPIs1\Index.cshtml" />
+    <Content Include="Views\MovieAPIs1\Favorite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

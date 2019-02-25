@@ -1,12 +1,8 @@
 ﻿@model IEnumerable<RecipesProjects.Models.MovieAPI>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<h2>Favorite  List</h2>
 
-<h2>Movie Details:</h2>
 <table class="table">
     <tr>
         <th>Title</th>
@@ -43,15 +39,16 @@
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                <button type="button"> @Html.ActionLink("Edit", "Edit", new { id = item.ID }) </button>
+                <button type="button"> @Html.ActionLink("Details", "Details", new { id = item.ID })</button>
+                <button type="button">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</button>
+                
             </td>
         </tr>
-         }
-
+    }
 
         
+
 
     </table>
 
