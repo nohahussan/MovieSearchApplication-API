@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RecipesProjects.Models.MovieAPI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Movie Details:</h2>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Rated</th>
+        <th>Released</th>
+        <th>Director</th>
+        <th>Genre</th>
+        <th></th>
+
+    </tr>
+
+    <tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Released)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+         }
+
+
+        
+
+    </table>
+
+
+
+
