@@ -61,8 +61,7 @@ namespace MovieAPI_Project.Controllers
             return View();
         }
 
-        }
-        
-
     }
+
+}
 
