@@ -36,9 +36,10 @@
 
 <button type="button" style="color: green">
     @Html.ActionLink("Search for Movies", "Index", "Home")
-    </button >
+</button>
 
 <button type="button" style="color:green">
-    @Html.ActionLink("Add to favoruit list", "Create", "MovieAPIs1","Model")</button>
+    @Html.ActionLink("Add to favoruit list", "Create", "MovieAPIs1",new {Model },null)
+</button>
 
 
