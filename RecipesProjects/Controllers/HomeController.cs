@@ -34,8 +34,8 @@ namespace RecipesProjects.Controllers
             MovieAPI obj = new MovieAPI();
             string Movename = userChoice.MovieName.Trim();
             obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
-            db.MovieAPIs.Add(obj);
-            db.SaveChanges();
+           // db.MovieAPIs.Add(obj);
+           // db.SaveChanges();
             return View(obj);
         }
 
