@@ -22,20 +22,30 @@ namespace RecipesProjects.Controllers
         [HttpPost]
         public ActionResult Index(UserInput userChoice)
         {
-             Session["UserInput"] = userChoice;
+            if (ModelState.IsValid)
+            {
+            
+                Session["UserInput"] = userChoice;
               
                 return RedirectToAction("About");
+            }
+            else
+            {
+                UserInput obj = new UserInput();
+                return View(obj);
+            }
         }
-
+       
         public ActionResult About()
         {
             userChoice =(UserInput) Session["UserInput"];
 
-            MovieAPI obj = new MovieAPI();
-            string Movename = userChoice.MovieName.Trim();
-            obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
-            Session["FavoruitMovie"] = obj;//store the searched result inside a Session so when the user decide to add it to his favorite list we get it
-            return View(obj);// return the movie details to the view so the user can read it
+                MovieAPI obj = new MovieAPI();
+                string Movename = userChoice.MovieName.Trim();
+                obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t=" + Movename + "&apikey=70a772b9&");
+                Session["FavoruitMovie"] = obj;//store the searched result inside a Session so when the user decide to add it to his favorite list we get it
+                return View(obj);// return the movie details to the view so the user can read it
+
         }
         public ActionResult AddToFavoruit() // The user reviewed the movie and decided to add it to his favoruit list
         {
