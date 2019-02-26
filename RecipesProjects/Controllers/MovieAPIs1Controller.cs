@@ -40,11 +40,13 @@ namespace RecipesProjects.Controllers
         // POST: MovieAPIs1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        
+       
         public ActionResult Create( MovieAPI movieAPI)
         {
             if (ModelState.IsValid)
             {
+                MovieAPI favoruitMovie = new MovieAPI();
+                favoruitMovie = movieAPI;
                 db.MovieAPIs.Add(movieAPI);
                 db.SaveChanges();
                 

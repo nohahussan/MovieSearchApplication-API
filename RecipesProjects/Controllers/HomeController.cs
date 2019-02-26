@@ -34,9 +34,14 @@ namespace RecipesProjects.Controllers
             MovieAPI obj = new MovieAPI();
             string Movename = userChoice.MovieName.Trim();
             obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
-           // db.MovieAPIs.Add(obj);
-           // db.SaveChanges();
-            return View(obj);
+            Session["FavoruitMovie"] = obj;//store the searched result inside a Session so when the user decide to add it to his favorite list we get it
+            return View(obj);// return the movie details to the view so the user can read it
+        }
+        public ActionResult AddToFavoruit() // The user reviewed the movie and decided to add it to his favoruit list
+        {
+            MovieAPI obj = new MovieAPI();
+            obj =(MovieAPI) Session["FavoruitMovie"];
+            return RedirectToAction("Create", "MovieAPIs1",obj);//pass the movie obj to create action in MovieAPIs1Controller to store this movie in the data base
         }
 
         public ActionResult Contact()
