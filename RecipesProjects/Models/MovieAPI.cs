@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-namespace RecipesProjects.Models
+namespace MovieAPI_Project.Models
 {
     public class MovieAPI
     {

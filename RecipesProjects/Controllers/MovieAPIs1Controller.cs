@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using RecipesProjects.Models;
+using MovieAPI_Project.Models;
 
-namespace RecipesProjects.Controllers
+namespace MovieAPI_Project.Controllers
 {
     public class MovieAPIs1Controller : Controller
     {

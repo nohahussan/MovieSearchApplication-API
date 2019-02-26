@@ -1,0 +1,4 @@
+C:\Users\Noha\Desktop\FinalAPIProject\RecipesProjects\obj\Debug\MovieAPIProjects.csprojAssemblyReference.cache
+C:\Users\Noha\Desktop\FinalAPIProject\RecipesProjects\obj\Debug\MovieAPIProjects.csproj.CoreCompileInputs.cache
+C:\Users\Noha\Desktop\FinalAPIProject\RecipesProjects\obj\Debug\RecipesProjects.dll
+C:\Users\Noha\Desktop\FinalAPIProject\RecipesProjects\obj\Debug\RecipesProjects.pdb

@@ -17,5 +17,5 @@ public class DBItemContext : DbContext
     {
     }
 
-    public System.Data.Entity.DbSet<RecipesProjects.Models.MovieAPI> MovieAPIs { get; set; }
+    public System.Data.Entity.DbSet<MovieAPI_Project.Models.MovieAPI> MovieAPIs { get; set; }
 }

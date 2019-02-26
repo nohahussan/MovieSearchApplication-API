@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
-using RecipesProjects.Models;
+using MovieAPI_Project.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace RecipesProjects.Controllers
+namespace MovieAPI_Project.Controllers
 {
     public class HomeController : Controller
     {
@@ -22,20 +22,30 @@ namespace RecipesProjects.Controllers
         [HttpPost]
         public ActionResult Index(UserInput userChoice)
         {
-             Session["UserInput"] = userChoice;
+            if (ModelState.IsValid)
+            {
+            
+                Session["UserInput"] = userChoice;
               
                 return RedirectToAction("About");
+            }
+            else
+            {
+                UserInput obj = new UserInput();
+                return View(obj);
+            }
         }
-
+       
         public ActionResult About()
         {
             userChoice =(UserInput) Session["UserInput"];
 
-            MovieAPI obj = new MovieAPI();
-            string Movename = userChoice.MovieName.Trim();
-            obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t="+Movename+ "&apikey=70a772b9&");
-            Session["FavoruitMovie"] = obj;//store the searched result inside a Session so when the user decide to add it to his favorite list we get it
-            return View(obj);// return the movie details to the view so the user can read it
+                MovieAPI obj = new MovieAPI();
+                string Movename = userChoice.MovieName.Trim();
+                obj = MovieDAL.GetPost("http://www.omdbapi.com/?" + "t=" + Movename + "&apikey=70a772b9&");
+                Session["FavoruitMovie"] = obj;//store the searched result inside a Session so when the user decide to add it to his favorite list we get it
+                return View(obj);// return the movie details to the view so the user can read it
+
         }
         public ActionResult AddToFavoruit() // The user reviewed the movie and decided to add it to his favoruit list
         {
@@ -51,22 +61,8 @@ namespace RecipesProjects.Controllers
             return View();
         }
 
-        public ActionResult Breakfast()
-        {
-            return View();
-        }
-
-        public ActionResult Lunch()
-        {
-            return View();
-        }
-
-        public ActionResult Dinner()
-        {
-            return View();
         }
         
 
     }
 
-}

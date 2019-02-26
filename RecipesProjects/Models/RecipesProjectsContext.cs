@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace RecipesProjects.Models
+namespace MovieAPI_Project.Models
 {
     public class RecipesProjectsContext : DbContext
     {
@@ -19,6 +19,6 @@ namespace RecipesProjects.Models
         {
         }
 
-        public System.Data.Entity.DbSet<RecipesProjects.Models.MovieAPI> MovieAPIs { get; set; }
+        public System.Data.Entity.DbSet<MovieAPI_Project.Models.MovieAPI> MovieAPIs { get; set; }
     }
 }
