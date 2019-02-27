@@ -5,27 +5,33 @@
 
     @using (Html.BeginForm("Index", "Home"))
     {
-        <div class="Row ">
-            <div class=" col-md-6">
-                <div>
-                    <h2>NEKMovieDB</h2>
+    <div class="Row ">
+        <div class=" col-md-6">
+            <div>
+                <h2>NEKMovieDB</h2>
 
-                    <p><h3>Movies! Movies! More Movies!</h3></p>
+                <p><h3>Movies! Movies! More Movies!</h3></p>
 
-                    <p><h3>All Things Movies</h3></p>
-                    <p><h4>Best online source for all things movies! Database contains a complete comprehensive listings of movies. Search by Title and you'll be on your way!'
-                    </h4></p>
-                </div>
-                <div class="form-group">
+                <p><h3>All Things Movies</h3></p>
+                <p>
+                    <h4>
+                        Best online source for all things movies! Database contains a complete comprehensive listings of movies. Search by Title and you'll be on your way!'
+                    </h4>
+                </p>
+            </div>
+            <div class="form-group">
 
-                    @Html.LabelFor(m => m.MovieName, new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.MovieName, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.MovieName, "", new { @class = "text-danger" })
+                @Html.LabelFor(m => m.MovieName, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.MovieName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.MovieName, "", new { @class = "text-danger" })
 
-                    <input type="submit" value="Search">
-                </div>
+                <input type="submit" value="Search">
             </div>
         </div>
+
+        <img src="~/Images/movies.jpg" />
+
+    </div>
     
 
 
