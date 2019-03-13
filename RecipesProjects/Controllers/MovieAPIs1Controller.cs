@@ -13,12 +13,15 @@ namespace MovieAPI_Project.Controllers
     public class MovieAPIs1Controller : Controller
     {
         private DBItemContext db = new DBItemContext();
+        
 
         // GET: MovieAPIs1
         public ActionResult Index()
         {
+            
             return View(db.MovieAPIs.ToList());
         }
+
 
         // GET: MovieAPIs1/Details/5
         public ActionResult Details(int? id)
@@ -49,6 +52,7 @@ namespace MovieAPI_Project.Controllers
                 favoruitMovie = movieAPI;
                 db.MovieAPIs.Add(movieAPI);
                 db.SaveChanges();
+               
                 
             }
 
@@ -76,7 +80,7 @@ namespace MovieAPI_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Year,Rated,Released,Director,Genre")] MovieAPI movieAPI)
+        public ActionResult Edit([Bind(Include = "ID,Title,Year,Rated,Released,Genre")] MovieAPI movieAPI)
         {
             if (ModelState.IsValid)
             {
